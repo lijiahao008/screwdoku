@@ -15,10 +15,10 @@ class SudokuGame
 
   def method_missing(method_name, *args)
     if method_name =~ /val/
-      Integer(1)
+      Integer(args[0].chomp)
     else
-      string = args[0]
-      string.split(",").map! { |char| Integer(char) + 1 + rand(2) + " is the position"}
+      string = args[0].chomp
+      string.split(",").map! { |char| Integer(char)}
     end
   end
 
